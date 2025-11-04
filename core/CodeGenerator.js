@@ -19,7 +19,8 @@ export class CodeGenerator {
   async generate(step, context) {
     const { taskDescription, url, html, errorMessage } = context;
 
-    const prompt = this._buildPrompt(taskDescription, url, errorMessage, step.expectations);
+    const resolvedTask = this._resolveVariables(taskDescription);
+    const prompt = this._buildPrompt(resolvedTask, url, errorMessage, step.expectations);
     
     const response = await this.client.chat.completions.create({
       model: this.model,
@@ -44,6 +45,20 @@ export class CodeGenerator {
         cachedTokens: response.usage.prompt_tokens_details.cached_tokens,
       },
     };
+  }
+
+  _resolveVariables(text) {
+    // Pattern per trovare ${VARIABILE} o ${VAR_NAME}
+    return text.replace(/\$\{([A-Z_][A-Z0-9_]*)\}/g, (match, varName) => {
+      const value = process.env[varName]; // ← Accesso diretto, dotenv NON necessario!
+      console.log(value);
+      if (value === undefined) {
+        console.warn(`⚠️ Variabile d'ambiente non trovata: ${varName}`);
+        return match; // Lascia il placeholder se non trovata
+      }
+      
+      return value;
+    });
   }
 
   /**
