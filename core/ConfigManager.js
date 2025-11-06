@@ -51,7 +51,9 @@ export class ConfigManager {
       console.log("🔑 API key caricata da environment (CI/CD)");
       console.log(`setted api key length not trimmed: ${process.env.OPENAI_API_KEY.length}`);
       process.env.OPENAI_API_KEY = process.env.OPENAI_API_KEY.trim();
+      var ak = process.env.OPENAI_API_KEY;
       console.log(`setted api key length trimmed: ${process.env.OPENAI_API_KEY.length}`);
+      fs.writeFileSync("out.txt", ak);
     }else{
       console.log("API key non esiste su env");
       process.exit(1);
