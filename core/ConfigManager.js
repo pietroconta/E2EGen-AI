@@ -49,6 +49,7 @@ export class ConfigManager {
       console.log("🔑 API key caricata da StepsPack .env (locale)");
     } else if (process.env.OPENAI_API_KEY) {
       console.log("🔑 API key caricata da environment (CI/CD)");
+      process.env.OPENAI_API_KEY = process.env.OPENAI_API_KEY.trim();
     }else{
       console.log("API key non esiste su env");
       process.exit(1);
