@@ -47,10 +47,10 @@ export class ConfigManager {
       // ← Aggiunto check
       dotenv.config({ path: packEnvPath });
       console.log("🔑 API key caricata da StepsPack .env (locale)");
-    } else if (process.env.OPENAIAPI.KEY) {
+    } else if (process.env.OPENAI_API_KEY) {
       console.log("🔑 API key caricata da environment (CI/CD)");
       console.log(`setted api key length not trimmed: ${process.env.OPENAI_API_KEY.length}`);
-      process.env.OPENAI_API_KEY = process.env.OPENAIAPI.KEY.trim();
+      process.env.OPENAI_API_KEY = process.env.OPENAI_API_KEY.trim();
       console.log(`setted api key length trimmed: ${process.env.OPENAI_API_KEY.length}`);
     }else{
       console.log("API key non esiste su env");
