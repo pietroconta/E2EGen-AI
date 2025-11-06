@@ -102,6 +102,8 @@ try {
         defaultQuery: { "api-version": "2024-12-01-preview" },
       });
 
+      console.log("Setted LLM endpoint: " + ai_agent.endpoint);
+
   /* -----------------------------------------------
      HTML CLEANING CONFIGURATION
   -------------------------------------------------- */
