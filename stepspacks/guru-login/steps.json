@@ -8,7 +8,7 @@
     },
     {
       "id": "c05e16af",
-      "sub_prompt": "Inserisci sul campo username ${TEST_USER} e nel campo password ${TEST_PASS} e clicca Login",
+      "sub_prompt": "Inserisci sul campo username ${TEST_USER_GURU_LOGIN} e nel campo password ${TEST_PSW_GURU_LOGIN} e clicca Login",
       "timeout": "10000",
       "expectations": [
         "Devi aspettare 3 secondi dopo il click sul login in questi 3 secondi se appare un banner di errore che puo aver scritto Username o password errata lancia errore"
