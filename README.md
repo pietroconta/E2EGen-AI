@@ -1,4 +1,5 @@
 # 🤖 E2EGen AI - AI-Assisted Playwright Test Generation
+![Logo del progetto](./logo.png)
 
 **Intelligent end-to-end test generation powered by GPT-4o** - Describe test steps in natural language, let AI generate the Playwright code, then execute with confidence.
 
